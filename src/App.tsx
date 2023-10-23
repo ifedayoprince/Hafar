@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { IonApp } from '@ionic/react';
+import { IonApp, setupConfig } from '@ionic/react';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -18,9 +17,21 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
+import './theme/hafar.css'
 import './theme/darktheme.css'
 
 import Routes from './routes';
+
+setupConfig({
+	animated: true
+})
+
+const hafarConfig = {
+	apiId: "18608202",
+	apiHash: "7bd78cc3ce5d4789873c28385823b914"
+}
+
+// const hafar = new TelegramClient(new StringSession(''),hafarConfig.apiId, hafarConfig.apiHash,{});
 
 const App: React.FC = () => {
 	return (

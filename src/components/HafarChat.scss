@@ -1,0 +1,20 @@
+.hafar-chatitem {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    position: relative;
+    max-height: 10vh;
+    --background: var(--theme-chatitem-bg);
+    border-bottom: 1px solid var(--theme-icon-color);
+    --color: var(--theme-chatitem-col);
+    font-family: var(--theme-font-pref);
+    display: flex;
+
+    .hafar-viewed {
+        color: var(--theme-icon-color)
+    }
+}
+
+.hafar-avatar {
+    width: 10vw;
+    height: 10vw;
+}

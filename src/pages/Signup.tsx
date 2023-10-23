@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { IonPage, IonModal, IonText, IonRow, IonInput, IonSelect, IonSelectOption, IonButton, IonCol, IonIcon, IonAlert } from '@ionic/react';
-import { star } from 'ionicons/icons'
-
+import { IonPage, IonModal, IonText, IonInput, IonButton, IonCol, IonAlert, IonRow, IonPopover } from '@ionic/react';
 import Cookies from '../utils/cookies';
 import { Route, Redirect } from 'react-router';
 
@@ -12,7 +10,8 @@ const Signup: React.FC = () => {
 			display: "none"
 		},
 		select: {
-			width: "40vw",
+			width: "50%",
+			maxWidth: "50%"
 		},
 		text: {
 			width: "46vw"
@@ -22,6 +21,26 @@ const Signup: React.FC = () => {
 	const [showWarn, setShowWarn] = useState(false);
 	const [showOTP, setShowOTP] = useState(false);
 
+	const [username, setUsername] = useState('');
+	const [phoneno, setPhoneno] = useState('');
+	const [password, setPassword] = useState('');
+
+	const signup = async (e: React.FormEvent) => {
+		e.preventDefault();
+		if (!username || !phoneno || !password) {
+			setShowWarn(true)
+		}
+
+		if (username && phoneno && password) {
+			setShowOTP(true)
+		}
+	};
+
+	const done = async ()=>{
+		Cookies.setCookie(Cookies.loggedCookie,true,365)
+		window.location.href = "/"
+	}
+
 	return (
 		<IonPage className="theme-page theme-page-pad">
 			{Cookies.getCookie(Cookies.loggedCookie) ? <Route exact render={() => <Redirect to="/main" />} /> : <Route exact render={() => <Redirect to="/signup" />} />}}
@@ -29,60 +48,37 @@ const Signup: React.FC = () => {
 
 			<IonAlert
 				isOpen={showWarn}
-				onDidDismiss={() => setShowWarn(false)}
 				cssClass="theme-alert"
-				message={'Pls fill all fields marked with a star.'}
-				buttons={['OK']}
+				onDidDismiss={() => setShowWarn(false)}
+				buttons={["Try Again"]}
+				message="All fields are required to proceed."
 			/>
-
-			<IonModal swipeToClose={true} isOpen={showOTP} onDidDismiss={() => setShowOTP(false)} cssClass="theme-alert">
-				<IonInput className="theme-input theme-font-1" placeholder="6-digit OTP" maxlength={6} type="number"/>
-			</IonModal>
-
-			<IonCol className="theme-object">
-				<IonRow>
-					<IonText className="theme-text-2 theme-font-1 theme-subtitle" style={style.text}>First Name: <IonIcon icon={star}></IonIcon></IonText>
-					<IonText className="theme-text-2 theme-font-1 theme-subtitle">Last Name: <IonIcon icon={star}></IonIcon></IonText>
+			<IonPopover isOpen={showOTP} onDidDismiss={() => setShowOTP(false)}>
+				<IonRow style={{ justifyContent: "space-between", diplay: "flex", backgroundColor:"black" }}>
+					<IonText className="otp-picker">665755</IonText>
+					<IonText className="otp-picker" onClick={done}>902268</IonText>
+					<IonText className="otp-picker">433683</IonText>
 				</IonRow>
-				<IonRow>
-					<IonInput id="fname" className="theme-input theme-font-1" autocomplete="on" placeholder="First name"/>
-					<IonInput id="lname" className="theme-input theme-font-1" autocomplete="on" placeholder="Last name"/>
-				</IonRow>
-			</IonCol>
+			</IonPopover>
 
-			<IonCol className="theme-object">
-				<IonText className="theme-text-3 theme-font-1 theme-subtitle">Phone number: <IonIcon icon={star}></IonIcon></IonText>
-				<IonInput id="epno" className="theme-input theme-font-1" autocomplete="on" pattern="(([0-9]+)|(\d+@\d+\.\d+))" placeholder="Phone number"/>
-			</IonCol>
+			<form noValidate onSubmit={signup}>
+				<IonCol className="theme-object">
+					<IonText className="theme-text-2 theme-font-1 theme-subtitle" style={style.text}>Username: </IonText>
+					<IonInput id="fname" className="theme-input theme-font-1" autocomplete="on" placeholder="Username" onIonChange={e => setUsername(e.detail.value!)} />
+				</IonCol>
 
-			<IonCol className="theme-object">
-				<IonText className="theme-text-3 theme-font-1 theme-subtitle">Password: <IonIcon icon={star}></IonIcon></IonText>
-				<IonInput id="pword" className="theme-input theme-font-1" type="password" autocomplete="on" placeholder="You're in safe hands"/>
-			</IonCol>
-			<IonCol className="theme-object">
-				<IonRow>
-					<IonText className="theme-text-2 theme-font-1 theme-subtitle" style={style.text}>Birthdate:</IonText>
-					<IonText className="theme-text-2 theme-font-1 theme-subtitle">Gender:</IonText>
-				</IonRow>
-				<IonRow>
-					<IonInput id="bday" type="date" className="theme-input theme-font-1" style={style.select} autocomplete="on" placeholder="Birthdate"/>
-					<IonSelect id="gender" className="theme-input theme-font-1" style={style.select}>
-						<IonSelectOption value="male">Male</IonSelectOption>
-						<IonSelectOption value="female">Female</IonSelectOption>
-						<IonSelectOption value="none">Rather not say</IonSelectOption>
-					</IonSelect>
-				</IonRow>
-			</IonCol>
+				<IonCol className="theme-object">
+					<IonText className="theme-text-3 theme-font-1 theme-subtitle">Phone number: </IonText>
+					<IonInput id="epno" className="theme-input theme-font-1" autocomplete="on" pattern="(([0-9]+)|(\d+@\d+\.\d+))" placeholder="Phone number" onIonChange={e => setPhoneno(e.detail.value!)} />
+				</IonCol>
+
+				<IonCol className="theme-object">
+					<IonText className="theme-text-3 theme-font-1 theme-subtitle">Password: </IonText>
+					<IonInput id="pword" className="theme-input theme-font-1" type="password" autocomplete="on" placeholder="You're in safe hands" onIonChange={e => setPassword(e.detail.value!)} />
+				</IonCol>
+				<IonButton type="submit" expand="block" className="theme-button" style={{ height: "6vh", fontSize: "4vw" }}>Create Account</IonButton>
+			</form>
 			<IonText className="theme-font-1 theme-subtitle theme-text-3">Already have an account? <a className="theme-link" href="/login">Login</a></IonText>
-
-			<IonButton onClick={() => {
-				setShowWarn(true);
-				setShowOTP(true);
-				Cookies.setCookie(Cookies.loggedCookie, true)
-
-				window.location.href = "/main"
-			}}>Create Account</IonButton>
-
 		</IonPage>
 	);
 }

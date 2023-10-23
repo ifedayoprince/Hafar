@@ -1,62 +1,38 @@
-# Ionic React Conference Application
+# What's the easiest way to say goodbye to WhatsApp, say hello to Hafar.
 
+![Hafar Logo](public/assets/icon/favicon.png)
+## Its an open-source messenger built on the Telegram Platform.
 
-This application is purely a kitchen-sink demo of the Ionic Framework and React.
+### Are they ads?
+Just some Facebook-style sponsored ads at the posts sections. But we promise they won't annoy you.
 
-**There is not an actual Ionic Conference at this time.** This project is just to show off Ionic components in a real-world application.
+### What will I benefit?
 
-## Angular and Vue versions
+* Secure communication with friends and family.
+* The speed and high storage capacity of the Telegram servers.
+* Facebook-like posts.
+* High level customizability.
+* Increases contact when new friends are added from the platform.
 
-We've built versions of this Conference app in Angular and Vue for developers that would prefer to use one of those framework options:
+### What does it have that WhatsApp doesn't?
 
-https://github.com/ionic-team/ionic-conference-app
+| Feature | Hafar | WhatsApp |
+| ------- | ----- | -------- |
+| Posts | full | none |
+| Security | full | partly |
+| Video and audio calls | full | full |
+| Statuses | partly | full |
+| Customizability | full | partly |
+| Global search | full | none |
 
-https://github.com/ionic-team/ionic-vue-conference-app
+*** and more to come... ***
 
-## Table of Contents
-- [Getting Started](#getting-started)
-- [App Preview](#app-preview)
+### Is it on Google Playstore or Apple Appstore
+We plan to put it there. But for now, its just a web app.
 
-## Getting Started
+### Why make the switch? 
+We the developers don't own the web or your life. So, Why make the switch? well because you can, and *** Why not ***.
 
-* [Download the installer](https://nodejs.org/) for Node LTS.
-* Install the ionic CLI globally: `npm install -g ionic`
-* Clone this repository: `git clone https://github.com/ionic-team/ionic-react-conference-app.git`.
-* Run `npm install` from the project root.
-* Run `ionic serve` in a terminal from the project root.
-* Profit. :tada:
+[Click here](https://hafar.vercel.app) to begin your journey.
 
-## App Preview
-
-### [Menu](https://github.com/ionic-team/ionic-conference-app/blob/master/src/app/pages/menu/menu.html)
-
-| Material Design  | iOS  |
-| -----------------| -----|
-| ![Android Menu](/resources/screenshots/android-menu.png) | ![iOS Menu](/resources/screenshots/ios-menu.png) |
-
-
-### [Schedule Page](https://github.com/ionic-team/ionic-conference-app/blob/master/src/app/pages/schedule/schedule.html)
-
-| Material Design  | iOS  |
-| -----------------| -----|
-| ![Android Schedule](/resources/screenshots/android-schedule.png) | ![iOS Schedule](/resources/screenshots/ios-schedule.png) |
-
-### [Speakers Page](https://github.com/ionic-team/ionic-conference-app/blob/master/src/app/pages/speaker-list/speaker-list.html)
-
-| Material Design  | iOS  |
-| -----------------| -----|
-| ![Android Speakers](/resources/screenshots/android-speakers.png) | ![iOS Speakers](/resources/screenshots/ios-speakers.png) |
-
-### [Speaker Detail Page](https://github.com/ionic-team/ionic-conference-app/blob/master/src/app/pages/speaker-detail/speaker-detail.html)
-
-| Material Design  | iOS  |
-| -----------------| -----|
-| ![Android Speaker Detail](/resources/screenshots/android-speaker-detail.png) | ![iOS Speaker Detail](/resources/screenshots/ios-speaker-detail.png) |
-
-### [About Page](https://github.com/ionic-team/ionic-conference-app/blob/master/src/app/pages/about/about.html)
-
-| Material Design  | iOS  |
-| -----------------| -----|
-| ![Android About](/resources/screenshots/android-about.png) | ![iOS About](/resources/screenshots/ios-about.png) |
-
-
+Ready. Set. Chat

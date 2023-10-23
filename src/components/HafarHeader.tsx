@@ -3,12 +3,13 @@ import { IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonContent 
 import './HafarHeader.scss'
 
 interface HafarHeaderProps {
-    href?: string;
+    href?: string,
+    notext?: boolean
 }
 const HafarHeader: React.FC<HafarHeaderProps> = (props) => {
     return (
         <>
-            <IonHeader className="hafar-header">
+            <IonHeader className="hafar-header" mode="md">
                 <IonToolbar className="hafar-toolbar theme-font-1">
                     {
                         props.href ?
@@ -17,7 +18,11 @@ const HafarHeader: React.FC<HafarHeaderProps> = (props) => {
                             </IonButtons> :
                             <></>
                     }
-                    <IonTitle>{props.children}</IonTitle>
+                    {
+                        props.notext ?
+                            props.children :
+                            <IonTitle>{props.children}</IonTitle>
+                    }
                 </IonToolbar>
 
             </IonHeader>

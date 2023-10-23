@@ -1,0 +1,27 @@
+:root {
+    --theme-input-border: #add8e6;
+    --theme-input-text: #ffffff;
+    --theme-bg: #0000ff;
+    --theme-link-hover: #008500;
+    --theme-link-active: #008f00;
+    --theme-text-1: #ff0000;
+    --theme-text-2: #00ff00;
+    --theme-text-3: #ffff00;
+    --theme-button-bg: #00ff00;
+    --theme-button-text: #000000;
+    --theme-button-font: Font2;
+    --theme-alert-bg: #000000;
+    --theme-alert-text: #ffffff;
+    --theme-icon-color: #ffffff;
+    --theme-icon-hover: #161616;
+    --theme-post-bg: #0000cd;
+    --theme-post-shadow: #87ceeb;
+    --theme-post-col: #ffffff;
+    --theme-badge-good: #00ff00;
+    --theme-badge-bad: #ff0000;
+    --theme-font-pref: Font1;
+    --theme-xp-head: #161616;
+    --theme-header-col: #ff0000;
+    --theme-chatitem-bg: #0000ff;
+    --theme-chatitem-col: #ffff00;
+}

@@ -9,7 +9,7 @@ interface HafarMenuProps {
 
 const HafarMenu: React.FC<HafarMenuProps> = (props) => {
     return (
-        <IonMenu side="start" type="overlay" className="hafar-menu" contentId="content" menuId="sidetools">
+        <IonMenu side="start" className="hafar-menu" contentId="main-content" menuId="sidetools">
             {
                 props.title ?
                     <IonHeader>
@@ -19,7 +19,7 @@ const HafarMenu: React.FC<HafarMenuProps> = (props) => {
                     </IonHeader> :
                     <></>
             }
-            <IonContent id="content">
+            <IonContent id="content" className="theme-content">
                 {props.children}
             </IonContent>
         </IonMenu>

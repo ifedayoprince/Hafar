@@ -1,0 +1,24 @@
+.hf-chat {
+    background-color: blue;
+    color: white;
+    font-family: var(--theme-font-1);
+    max-width: 72vw;
+    border-radius: 3vw;
+    margin: 2vw;
+    width: max-content;
+    text-align: start;
+    padding: 4vw;
+    padding-top: 4px;
+}
+.hf-chat-u {
+    background-color: var(--theme-text-2);
+    color: black;
+    font-family: var(--theme-font-1);
+    max-width: 72vw;
+    border-radius: 3vw;
+    margin: 2vw;
+    width: max-content;
+    text-align: start;
+    padding: 4vw;
+    padding-top: 4px;
+}

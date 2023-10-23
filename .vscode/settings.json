@@ -1,3 +1,6 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "ionic-preview.host": "127.0.0.1",
+  "ionic-preview.port": 8080,
+  "ionic-preview.background-color": "#FFFFFF"
 }

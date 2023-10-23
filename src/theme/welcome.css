@@ -7,7 +7,4 @@
     color: var(--theme-button-text);
     font-size: 6vw;
     background-color: var(--theme-button-bg);
-    position: relative;
-    top: 32vh;
-    left: 55vw;
 }

@@ -21,6 +21,28 @@ const Login: React.FC = () => {
 
     const [showWarn, setShowWarn] = useState(false);
     
+	const [phoneno, setPhoneno] = useState('');
+    const [password, setPassword] = useState('');
+    const [formSubmitted, setFormSubmitted] = useState(false);
+    const [notfoundError, setNotfoundError] = useState(false);
+
+	const signin = async (e: React.FormEvent) => {
+		e.preventDefault();
+        setFormSubmitted(true)
+
+        setNotfoundError(true)
+		if (!phoneno || !password) {
+            setShowWarn(true)
+            
+            
+		}
+
+		if (phoneno && password) {
+            
+            Cookies.setCookie(Cookies.loggedCookie,true,365);
+            window.location.href = "/"
+		}
+	};
     return (        
         <IonPage className="theme-page theme-page-pad">
             {Cookies.getCookie(Cookies.loggedCookie) ? <Route exact render={() => <Redirect to="/main" />} /> : <Route exact render={() => <Redirect to="/login" />} />}}
@@ -30,30 +52,25 @@ const Login: React.FC = () => {
 				isOpen={showWarn}
 				onDidDismiss={() => setShowWarn(false)}
 				cssClass="theme-alert"
-				message={'Pls fill all fields marked with a star.'}
-				buttons={['OK']}
+				message={'All fields are required to proceed.'}
+				buttons={['Try Again']}
 			/>
 
+        <form noValidate onSubmit={signin}>
             <IonCol className="theme-object">
-            <IonText className="theme-text-3 theme-font-1 theme-subtitle">Phone number: <IonIcon icon={star}></IonIcon></IonText>
-                <IonInput className="theme-input theme-font-1" autocomplete="on" pattern="(([0-9]+)|(\d+@\d+\.\d+))" placeholder="Phone number"></IonInput>
+            <IonText className="theme-text-3 theme-font-1 theme-subtitle">Phone number: </IonText>
+                <IonInput className="theme-input theme-font-1" autocomplete="on" pattern="(([0-9]+)|(\d+@\d+\.\d+))" placeholder="Phone number" onIonChange={e => setPhoneno(e.detail.value!)}/>
             </IonCol>
             <IonCol className="theme-object">
-            <IonText className="theme-text-3 theme-font-1 theme-subtitle">Password: <IonIcon icon={star}></IonIcon></IonText>
-                <IonInput className="theme-input theme-font-1" type="password" autocomplete="on" placeholder="You're in safe hands"></IonInput>
+            <IonText className="theme-text-3 theme-font-1 theme-subtitle">Password: </IonText>
+                <IonInput className="theme-input theme-font-1" type="password" autocomplete="on" placeholder="You're in safe hands" onIonChange={e => setPassword(e.detail.value!)}/>
             </IonCol>
-
-            <IonRow className="theme-object">
-                <IonCheckbox style={style.cb}></IonCheckbox>
-                <IonText className="theme-font-1 theme-subtitle theme-text-2">Remember me.</IonText>
-            </IonRow>
+            {formSubmitted && notfoundError && <IonText color="danger" style={{marginTop: "0px", fontSize:"0.4em", marginBottom: "5px", padding: "0px"}}>
+            Account wasn't found here or on Telegram. Try again.<br/>
+            </IonText>}
             <IonText className="theme-font-1 theme-text-3 theme-subtitle">Don't have an account yet? <a className="theme-link" href="/signup">Create one</a></IonText>
-            <IonButton onClick={() => {
-					setShowWarn(true);
-					Cookies.setCookie(Cookies.loggedCookie,true)
-
-					window.location.href = "/main"
-			}}>Sign in</IonButton>
+            <IonButton type="submit" expand="block" className="theme-button" style={{height: "6vh", fontSize: "4vw"}}>Sign In</IonButton>
+			</form>
         </IonPage>
     );
 }

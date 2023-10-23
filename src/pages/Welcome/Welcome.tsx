@@ -1,4 +1,4 @@
-import { IonPage, IonImg, IonText, IonRow, IonButton } from '@ionic/react';
+import { IonPage, IonImg, IonText, IonRow, IonButton, IonFab } from '@ionic/react';
 import './../../theme/welcome.css'
 import React from 'react';
 import Cookies from '../../utils/cookies';
@@ -21,7 +21,9 @@ const Welcome: React.FC = () => {
 				<IonText className="theme-text-3 theme-font-1">&nbsp;people</IonText>
 				<IonText className="theme-text-1 theme-font-1">.</IonText>
 			</IonRow>
-			<IonButton shape="round" color="green" className="theme-button welcome_btn" href="/welcome/page2">NEXT >></IonButton>
+			<IonFab vertical="bottom" horizontal="end">
+				<IonButton shape="round" color="green" className="theme-button welcome_btn" href="/welcome/page2">NEXT >></IonButton>
+			</IonFab>
 		</IonPage>
 	)
 };

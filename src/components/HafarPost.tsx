@@ -3,6 +3,8 @@ import { IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, 
 import { thumbsUp, thumbsDown } from 'ionicons/icons'
 
 import './HafarPost.scss'
+import Algo from '../utils/Algo';
+import HafarAvatar from './HafarAvatar';
 interface HafarPostProps {
     profileId: string,
     profile: string,
@@ -17,24 +19,23 @@ const HafarPost: React.FC<HafarPostProps> = (props) => {
     if (c == 4) c = 1
 
     return (
-        <IonCard className="hafar-post">
+        <IonCard className="hafar-post" mode="md">
             <IonCardHeader className="hafar-header">
-                <IonRow>
-                    <IonAvatar className="hafar-avatar" />
+                <IonRow style={{alignItems: "center"}}>
+                    <HafarAvatar active={true}/>
                     <IonCol>
-                        <IonCardTitle className={`theme-font-1 theme-text-${c}`}>{getProfilename(props.profile)}</IonCardTitle>
-                        <IonCardSubtitle>{getDateDistance(props.date, new Date())}</IonCardSubtitle>
+                        <IonCardTitle className={`theme-font-1 theme-font-size theme-text-${c}`} style={{maxWidth: "25vw"}}>{Algo.shorten(10,props.profile)}</IonCardTitle>
+                        <IonCardSubtitle style={{fontSize:"2vw"}}>{getDateDistance(props.date, new Date())}</IonCardSubtitle>
                     </IonCol>
                     <IonButtons className="hafar-btns">
-                        <IonButton className="theme-badge-good">
-                            <IonIcon icon={thumbsUp} />
+                        <IonButton className="theme-badge-gc theme-font-size">
+                            <IonIcon icon={thumbsUp}/>
                         </IonButton>
-                        <IonBadge className="hafar-badge theme-badge-good" style={{ marginRight: "2vw" }}>543</IonBadge>
-                        <IonBadge className="hafar-badge theme-badge-bad">4</IonBadge>
-                        <IonButton className="theme-badge-bad">
-                            <IonIcon icon={thumbsDown} />
+                        <IonBadge className="theme-badge theme-badge-good" style={{ marginRight: "2vw" }} mode="ios">543</IonBadge>
+                        <IonBadge className="theme-badge theme-badge-bad" mode="ios">4</IonBadge>
+                        <IonButton className="theme-badge-bc theme-font-size">
+                            <IonIcon icon={thumbsDown}/>
                         </IonButton>
-
                     </IonButtons>
                 </IonRow>
             </IonCardHeader>
@@ -47,8 +48,8 @@ const HafarPost: React.FC<HafarPostProps> = (props) => {
     );
 }
 function getProfilename(name: string) {
-    name = name.substring(0, 15);
-    if (name.length >= 15) {
+    name = name.substring(0, 10);
+    if (name.length >= 10) {
         return name.trimEnd() + "...";
     } else {
         return name;

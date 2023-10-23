@@ -1,3 +1,0 @@
-<Route path="/tabs" render={() => <MainTabs />} />
-<Route path="/account" component={Account} />
-<Route path="/" component={HomePage} exact />
