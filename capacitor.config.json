@@ -1,0 +1,8 @@
+{
+  "appId": "com.tegribyte.hafar",
+  "appName": "Hafar",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "cordova": {}
+}

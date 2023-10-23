@@ -1,0 +1,31 @@
+.fizz-video {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+
+.fizz-video > #video {
+    width: 100vw;
+    height: 100vh;
+}
+
+#menu {
+    position: relative;
+    top: -35vh;
+    left: 81vw;
+    width: max-content;
+    justify-content: center;
+    display: grid;
+}
+
+.fizz-video > #menu > .item {
+    font-size: 15vw;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.fizz-video > #menu > .itemicon {
+    width: 15vw;
+    height: 15vw;
+    margin-bottom: 10px;
+}

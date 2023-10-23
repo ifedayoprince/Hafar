@@ -1,0 +1,20 @@
+.hafar-logo {
+    font-size: 6.5vh;
+    width: 6vh;
+    height: 6vh;
+}
+.home-search {
+    width: 72vw !important;
+    --background: var(--theme-bg);
+    border: none !important;
+}
+.row {
+    padding-left: 4vw;
+    padding-right: 4vw;
+}
+.hafar-avatar {
+    
+}
+.is-hidden {
+    display: none;
+}
