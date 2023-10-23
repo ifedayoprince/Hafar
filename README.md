@@ -3,7 +3,7 @@
 ![Hafar Logo](public/assets/icon/favicon.png)
 ## Its an open-source messenger built on the Telegram Platform.
 
-### Are they ads?
+### Are there ads?
 Just some Facebook-style sponsored ads at the posts sections. But we promise they won't annoy you.
 
 ### What will I benefit?
